@@ -14,7 +14,7 @@ class CustomObject:
         self.is_student = is_student
 
     def display(self):
-        print(f"Name: {self.name}\nAge: {self.age}",
+        print(f"Name: {self.name}\nAge: {self.age}\n",
               f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
@@ -25,8 +25,6 @@ class CustomObject:
     def deserialize(cls, filename):
         with open(filename, 'rb') as f:
             try:
-                return pickle.load(filename)
+                return pickle.load(f)
             except:
                 return None
-        return None
-    
