@@ -1,0 +1,1 @@
+This directory is for learning serialization and martialing in python
