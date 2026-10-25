@@ -1,0 +1,1 @@
+This directory is for learning object relational mapping with sqlalchemy in python
