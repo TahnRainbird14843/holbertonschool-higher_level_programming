@@ -4,7 +4,7 @@ import MySQLdb
 
 
 """
-this is documented
+This file prints all rows form a given mysql database
 """
 
 
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     query = "SELECT * FROM states ORDER BY id ASC"
 
     cursor.execute(query)
-    
+
     for row in cursor.fetchall():
         print(row)
 
