@@ -19,15 +19,14 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
     query = "SELECT cities.name FROM states " \
-            "LEFT JOIN cities" \
-            "ON cities.state_id = states.id" \
-            "WHERE states.name = (%s)" \
+            "LEFT JOIN cities " \
+            "ON cities.state_id = states.id " \
+            "WHERE states.name = %s " \
             "ORDER BY cities.id ASC"
 
-    cursor.execute(query, sys.argv[4])
+    cursor.execute(query, (sys.argv[4],))
 
-    for row in cursor.fetchall():
-        print(row[0], sep=', ')
+    print(", ".join(row[0] for row in cursor.fetchall()))
 
     cursor.close()
     db.close()
