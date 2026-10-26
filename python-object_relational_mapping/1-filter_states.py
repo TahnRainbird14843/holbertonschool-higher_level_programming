@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-import sys
-import MySQLdb
-
 
 """
 This file prints all rows form a given mysql database
 """
+
+import sys
+import MySQLdb
 
 
 if __name__ == "__main__":
