@@ -18,7 +18,7 @@ if __name__ == "__main__":
         )
 
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name = %s"
+    query = "SELECT * FROM states WHERE name = {}".format(sys.argv[4])
 
     cursor.execute(query, (sys.argv[4], ))
 
