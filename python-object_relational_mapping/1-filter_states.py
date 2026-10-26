@@ -16,7 +16,7 @@ if __name__ == "__main__":
             passwd=sys.argv[2],
             db=sys.argv[3]
         )
-    
+
     cursor = db.cursor()
     query = "SELECT * FROM states ORDER BY id ASC"
 
@@ -28,4 +28,3 @@ if __name__ == "__main__":
 
     cursor.close()
     db.close()
-    
