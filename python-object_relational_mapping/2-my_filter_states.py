@@ -24,8 +24,13 @@ if __name__ == "__main__":
 
     cursor.execute(query)
 
-    for row in cursor.fetchall():
-        print(row)
+    output = cursor.fetchall()
+
+    if not output:
+        print("Not found")
+    else:
+        for row in cursor.fetchall():
+            print(row)
 
     cursor.close()
     db.close()
