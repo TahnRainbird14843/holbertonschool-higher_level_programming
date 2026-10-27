@@ -16,7 +16,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State).where(
+    states =  session.query(State).where(
             State.name.like(sys.argv[4])).order_by(State.id):
-        print(f"{state.id}")
+    if states:
+        print(f"{states[0].id}")
+    else:
+        print("Not found")
     session.close()
