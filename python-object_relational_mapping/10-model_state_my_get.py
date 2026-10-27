@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/home/tahn-rainbird/.pyenv/versions/3.8.20/bin/python
 """
 this is documented
 """
@@ -17,10 +17,12 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     states = session.query(State).where(
-        State.name.like(sys.argv[4])).order_by(State.id)
-    if states:
+        State.name.like(sys.argv[4])).order_by(State.id).all()
+
+    if not states:
+        print("Not found")
+    else:
         for state in states:
             print(f"{state.id}")
-    else:
-        print("Not found")
+
     session.close()
