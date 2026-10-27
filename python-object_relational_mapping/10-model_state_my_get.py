@@ -18,5 +18,5 @@ if __name__ == "__main__":
     session = Session()
     for state in session.query(State).where(
             State.name.like(sys.argv[4])).order_by(State.id):
-        print(f"{state.id}: {state.name}")
+        print(f"{state.id}")
     session.close()
