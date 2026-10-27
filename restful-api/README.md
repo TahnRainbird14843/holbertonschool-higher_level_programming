@@ -1,0 +1,1 @@
+This directory is for learning to interact with pythons restful api to communicate with http and https servers
