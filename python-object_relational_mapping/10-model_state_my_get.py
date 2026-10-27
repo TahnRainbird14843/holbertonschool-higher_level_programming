@@ -17,7 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     states =  session.query(State).where(
-            State.name.like(sys.argv[4])).order_by(State.id):
+            State.name.like(sys.argv[4])).order_by(State.id)
     if states:
         for state in states:
             print(f"{state.id}")
