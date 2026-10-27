@@ -26,10 +26,10 @@ if __name__ == "__main__":
 
     output = cursor.fetchall()
 
-    if not output:
-        print("Not found")
+    if len(output) == 0:
+        print("Not Found")
     else:
-        for row in cursor.fetchall():
+        for row in output:
             print(row)
 
     cursor.close()
