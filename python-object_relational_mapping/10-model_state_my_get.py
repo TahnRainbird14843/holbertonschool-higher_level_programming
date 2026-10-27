@@ -1,4 +1,4 @@
-#!/home/tahn-rainbird/.pyenv/versions/3.8.20/bin/python
+#!/usr/bin/python
 """
 this is documented
 """
