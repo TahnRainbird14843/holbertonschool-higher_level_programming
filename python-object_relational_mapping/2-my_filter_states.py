@@ -26,8 +26,8 @@ if __name__ == "__main__":
 
     output = cursor.fetchall()
 
-    for row in output:
-        print(row)
+    if (len(output) > 0):
+        print(output[0])
 
     cursor.close()
     db.close()
