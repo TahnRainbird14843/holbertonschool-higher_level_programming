@@ -37,6 +37,7 @@ def login():
     if verify_password(username=username, password=password):
         token = create_access_token(identity=username)
         return jsonify({"access_token" : token})
+    return jsonify({"error":"Invalid Token"}), 401
 
 
 @app.route('/jwt-protected')
@@ -45,6 +46,7 @@ def jwt_protected():
     current_user = get_jwt_identity()
     if current_user in list(users.keys()):
         return "JWT Auth: Access Granted"
+    return jsonify({"error":"Admin access required"}), 403
 
 
 @app.route('/admin-only')
