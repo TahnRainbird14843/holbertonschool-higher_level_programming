@@ -32,9 +32,8 @@ def get_user(username):
 @app.route("/add_user", methods=['POST'])
 def add_user():
     if request.method == 'POST':
-        data = request.form
         try:
-            data = data.json()
+            data = request.get_json(force=True)
         except:
             return jsonify({"error": "Invalid JSON"}), 400
         if "username" not in list(data.keys()):
