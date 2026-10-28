@@ -26,7 +26,7 @@ def get_user(username):
     try:
         return users[username]
     except:
-        abort(404, {"error": "User not found"})
+        return jsonify({"error": "User not found"}), 404
 
 
 @app.route("/add_user", methods=['POST'])
