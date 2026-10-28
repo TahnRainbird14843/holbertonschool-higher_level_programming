@@ -6,7 +6,7 @@ from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity
 
 users = {
     "user1": {"username": "user1", "password": generate_password_hash("password"), "role": "user"},
-    "admin1": {"username": "user1", "password": generate_password_hash("password"), "role": "user"}
+    "admin1": {"username": "user1", "password": generate_password_hash("password"), "role": "admin"}
 }
 
 app = Flask(__name__)
@@ -45,6 +45,14 @@ def jwt_protected():
     current_user = get_jwt_identity()
     if current_user in list(users.keys()):
         return "JWT Auth: Access Granted"
+
+
+@app.route('/admin-only')
+@jwt_required()
+def admin_protected():
+    current_user = get_jwt_identity()
+    if current_user in list(users.keys()) and users[current_user]["role"] == "admin":
+        return "Admin Access: Granted"
 
 
 @jwt.unauthorized_loader
