@@ -42,7 +42,7 @@ def add_user():
         if username in list(users.keys()):
             return jsonify({"error": "Username already exists"}), 409
 
-        original_data = data
+        original_data = data.copy()
         data.pop("username")
         users[username] = data
         message = {"message": "User added"}
