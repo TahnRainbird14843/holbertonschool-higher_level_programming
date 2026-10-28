@@ -24,7 +24,7 @@ def status():
 @app.route("/users/<username>")
 def get_user(username):
     try:
-        return users[username]
+        return jsonify(users[username])
     except:
         return jsonify({"error": "User not found"}), 404
 
@@ -39,7 +39,7 @@ def add_user():
         if "username" not in list(data.keys()):
             return jsonify({"error": "Username is required"}), 400
         username = data["username"]
-        if username in list(users.values()):
+        if username in list(users.keys()):
             return jsonify({"error": "Username already exists"}), 409
 
         original_data = data
