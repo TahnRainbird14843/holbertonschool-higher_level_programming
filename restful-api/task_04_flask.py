@@ -34,7 +34,7 @@ def add_user():
     if request.method == 'POST':
         data = request.form
         try:
-            data = json.loads(data)
+            data = data.json()
         except:
             return jsonify({"error": "Invalid JSON"}), 400
         if "username" not in list(data.keys()):
