@@ -36,12 +36,12 @@ def add_user():
         try:
             data = json.loads(data)
         except:
-            abort(400, {"error": "Invalid JSON"})
+            return jsonify({"error": "Invalid JSON"}), 400
         if "username" not in list(data.keys()):
-            abort(400, {"error": "Username is required"})
+            return jsonify({"error": "Username is required"}), 400
         username = data["username"]
         if username in list(users.values()):
-            abort(409, {"error": "Username already exists"})
+            return jsonify({"error": "Username already exists"}), 409
 
         original_data = data
         del data["username"]
