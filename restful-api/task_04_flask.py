@@ -43,7 +43,7 @@ def add_user():
             return jsonify({"error": "Username already exists"}), 409
 
         original_data = data
-        del data["username"]
+        data.pop("username")
         users[username] = data
         message = {"message": "User added"}
         message["user"] = original_data
