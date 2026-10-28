@@ -44,7 +44,7 @@ class Server(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('content-type', 'text/html')
             self.end_headers()
-            self.wfile.write('Endpoint Not Found'.encode())
+            self.wfile.write('Endpoint not found'.encode())
 
 
 
