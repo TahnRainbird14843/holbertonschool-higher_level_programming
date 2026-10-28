@@ -13,7 +13,7 @@ class Server(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('content-type', 'text/html')
         self.end_headers()
-        self.wfile.write('<h1>Hello, this is a simple API!</h1>'.encode())
+        self.wfile.write('Hello, this is a simple API!'.encode())
 
     def display_data(self):
         """displayed when /data is accessed"""
@@ -25,7 +25,7 @@ class Server(BaseHTTPRequestHandler):
 
     def display_status(self):
         """displayed when /status is accessed"""
-        self.send_response(204)
+        self.send_response(200)
         self.end_headers()
 
     def do_GET(self):
@@ -42,7 +42,7 @@ class Server(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('content-type', 'text/html')
             self.end_headers()
-            self.wfile.write('<h1>Invalid Endpoint</h1>'.encode())
+            self.wfile.write('Endpoint Not Found'.encode())
 
 
 
