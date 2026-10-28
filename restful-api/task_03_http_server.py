@@ -26,7 +26,9 @@ class Server(BaseHTTPRequestHandler):
     def display_status(self):
         """displayed when /status is accessed"""
         self.send_response(200)
+        self.send_header('content-type', 'text/html')
         self.end_headers()
+        self.wfile.write("OK".encode())
 
     def do_GET(self):
         """runs the get request"""
