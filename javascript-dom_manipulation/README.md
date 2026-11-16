@@ -1,0 +1,1 @@
+For learning to manipulate front-end web design with javascript
