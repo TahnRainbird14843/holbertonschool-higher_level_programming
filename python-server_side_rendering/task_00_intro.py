@@ -36,12 +36,12 @@ def generate_invitations(template_content, attendees):
     for attendee in attendees:
         invitation = template_content
         for placeholder in placeholders:
-            if attendee[placeholder]:
-                replacement = attendee[placeholder]
-            else:
-                replacement = placeholder + ": N/A"
-
             try:
+                if attendee[placeholder]:
+                    replacement = attendee[placeholder]
+                else:
+                    replacement = placeholder + ": N/A"
+
                 invitation = invitation.replace("{" + placeholder + "}", replacement)
             except KeyError:
                 invitation = invitation.replace("{" + placeholder + "}", placeholder + ": N/A")
