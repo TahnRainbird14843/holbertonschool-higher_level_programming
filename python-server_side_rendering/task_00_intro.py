@@ -1,12 +1,15 @@
-from typing import List
 
 
 def error_check(template_content, attendees):
     if (not isinstance(template_content, str)):
         raise ValueError("Template content must be a string.")
 
-    if (not isinstance(attendees, List[dict])):
-        raise ValueError("Attendees must be a list of dictionaries containing each attendees data.")
+    if (not isinstance(attendees, list)):
+        raise ValueError("Attendees must be a list of dictionaries.")
+
+    for attendee in attendees:
+        if (not isinstance(attendee, dict)):
+            raise ValueError("Attendee data must be a dictionary")
 
     if (template_content == "" or template_content is None):
         raise ValueError("Template is empty, no output files generated.")
