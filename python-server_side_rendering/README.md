@@ -1,0 +1,1 @@
+For learning server side rendering in python
