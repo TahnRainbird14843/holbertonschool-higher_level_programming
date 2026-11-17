@@ -11,10 +11,10 @@ def error_check(template_content, attendees):
         if (not isinstance(attendee, dict)):
             raise ValueError("Attendee data must be a dictionary")
 
-    if (template_content == "" or template_content is None):
+    if (template_content == ""):
         raise ValueError("Template is empty, no output files generated.")
 
-    if (attendees == {} or attendees is None):
+    if (attendees == {}):
         raise ValueError("No data provided, no output files generated.")
 
 
