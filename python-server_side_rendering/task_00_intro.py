@@ -27,7 +27,11 @@ def generate_invitations(template_content, attendees):
     }
     invitations = []
 
-    error_check(template_content, attendees)
+    try:
+        error_check(template_content, attendees)
+    except ValueError as e:
+        print(e)
+        return None
 
     for attendee in attendees:
         invitation = template_content
