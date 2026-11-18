@@ -5,8 +5,8 @@
 </head>
 <body>
     <h1>Items List</h1>
-    <ul id="items">
     {% if items %}
+    <ul id="items">
     {% for item in items %}
         <li>{{ item }}</li>
     {% endfor %}
